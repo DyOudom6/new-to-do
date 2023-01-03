@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/styles.css">
+  <title></title>
+</head>
+
+<body>
+
+  <div class="box" id="heading">
+    <h2> <%=LISTTITLE%> </h2>
+  </div>
+
+  <div class="box">
+    <% ITEMS.forEach(function(ITEM){%>
+    <form class="" action="/delete" method="post">
+      <div class="item">
+        <input type="checkbox" name="checkedDelete" value="<%=ITEM._id%>" onChange="this.form.submit()">
+        <p><%=ITEM.name%></p>
+      </div>
+      <input type="hidden" name="checkedDeleteWithTitle" value=<%= LISTTITLE %>>
+    </form>
+    <%})%>
+
+    <!-- <% for(var i =0; i<ITEMS.length; i++){ %>
+    <div class="item">
+      <input type="checkbox">
+      <p><%= ITEMS[i].name %> </p>
+    </div>
+
+    <%}%> -->
+
+    <form action="/" method="post">
+      <input type="text" name="txt" placeholder="New Item">
+      <button class="" type="submit" name="list" value=<%= LISTTITLE %>><span><span>+</span></span></button>
+    </form>
+  </div>
+
+
+</body>
+
+</html>
